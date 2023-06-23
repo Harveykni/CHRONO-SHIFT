@@ -1,0 +1,16 @@
+{
+  "name": "accessible-addition-buy-hw0fp",
+  "productName": "accessible-addition-buy-hw0fp",
+  "description": "My Electron application description",
+  "keywords": [],
+  "main": "./main.js",
+  "version": "1.0.0",
+  "author": "Harvey knight",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "electron": "25.0.1"
+  }
+}

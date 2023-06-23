@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <title>Hello World!</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+    We are using Node.js <span id="node-version"></span>,
+    Chromium <span id="chrome-version"></span>,
+    and Electron <span id="electron-version"></span>.
+
+    <!-- You can also require other files to run in this process -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/three@latest/build/three.min.js"></script>
+
+<!-- Replace path/to/three.min.js with the actual URL for Three.js library download location --
+
+     example: <https://cdn.jsdelivr.net/npm/three@latest/build/three.min.js>
+ -->
+<script>
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, (window.innerWidth / window.innerHeight) * 0.94, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer();
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var cubeGeometry = new THREE.BoxGeometry();
+            var cubeMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+            var cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+            scene.add(cube);
+        });
+
+        camera.position.z = 5;
+        camera.position.y = 10;
+        camera.lookAt(scene.position);
+
+        function animate(){
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
+</script>
+  </body>
+</html>
